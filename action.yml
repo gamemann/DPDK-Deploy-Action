@@ -5,23 +5,34 @@ runs:
   steps:
     - name: Run apt update
       run: sudo apt update
+      shell: bash
     - name: Install Python3
       run: sudo apt install -y python3 python3-pop
+      shell: bash
     - name: Install Meson via Python3
       run: sudo pip3 install meson
+      shell: bash
     - name: Install Ninja Build
       run: sudo apt install ninja-build
+      shell: bash
     - name: Clone DPDK repository
       run: git clone https://github.com/dpdk/dpdk.git
+      shell: bash
     - name: Change directory to DPDK
       run: cd dpdk/
+      shell: bash
     - name: Run Meson Build
       run: meson build
+      shell: bash
     - name: Change into build directory
       run: cd build/
+      shell: bash
     - name: Run Ninja
       run: ninja
+      shell: bash
     - name: Run Ninja install as root
       run: sudo ninja install
+      shell: bash
     - name: Link libraries
       run: sudo ldconfig
+      shell: bash
