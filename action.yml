@@ -18,27 +18,18 @@ runs:
     - name: Clone DPDK repository
       run: git clone https://github.com/dpdk/dpdk.git
       shell: bash
-    - name: Change directory to DPDK
-      run: cd dpdk/
-      shell: bash
-    - name: List files
-      run: ls -la
-      shell: bash
-    - name: List working directory
-      run: pwd
-      shell: bash
     - name: Run Meson Build
       run: meson build
       shell: bash
-    - name: Change into build directory
-      run: cd build/
-      shell: bash
+      working-directory: ./dpdk
     - name: Run Ninja
       run: ninja
       shell: bash
+      working-directory: ./dpdk/build
     - name: Run Ninja install as root
       run: sudo ninja install
       shell: bash
+      working-directory: ./dpdk/build
     - name: Link libraries
       run: sudo ldconfig
       shell: bash
