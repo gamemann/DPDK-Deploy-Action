@@ -15,6 +15,9 @@ runs:
     - name: Install Ninja Build
       run: sudo apt install ninja-build
       shell: bash
+    - name: Install Py ELF Tools
+      run: sudo pip3 install pyelftools
+      shell: bash
     - name: Clone DPDK repository
       run: git clone https://github.com/dpdk/dpdk.git
       shell: bash
