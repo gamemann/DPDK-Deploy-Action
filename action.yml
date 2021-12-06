@@ -21,6 +21,12 @@ runs:
     - name: Change directory to DPDK
       run: cd dpdk/
       shell: bash
+    - name: List files
+      run: ls -la
+      shell: bash
+    - name: List working directory
+      run: pwd
+      shell: bash
     - name: Run Meson Build
       run: meson build
       shell: bash
