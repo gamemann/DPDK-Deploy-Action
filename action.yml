@@ -7,7 +7,7 @@ runs:
       run: sudo apt update
       shell: bash
     - name: Install Python3
-      run: sudo apt install -y python3 python3-pop
+      run: sudo apt install -y python3 python3-pip
       shell: bash
     - name: Install Meson via Python3
       run: sudo pip3 install meson
