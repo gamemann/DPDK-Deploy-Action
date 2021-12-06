@@ -1,0 +1,27 @@
+name: "DPDK Deploy"
+description: "Deploys the DPDK using default settings."
+runs:
+  using: "composite"
+  steps:
+    - name: Run apt update
+      run: sudo apt update
+    - name: Install Python3
+      run: sudo apt install -y python3 python3-pop
+    - name: Install Meson via Python3
+      run: sudo pip3 install meson
+    - name: Install Ninja Build
+      run: sudo apt install ninja-build
+    - name: Clone DPDK repository
+      run: git clone https://github.com/dpdk/dpdk.git
+    - name: Change directory to DPDK
+      run: cd dpdk/
+    - name: Run Meson Build
+      run: meson build
+    - name: Change into build directory
+      run: cd build/
+    - name: Run Ninja
+      run: ninja
+    - name: Run Ninja install as root
+      run: sudo ninja install
+    - name: Link libraries
+      run: sudo ldconfig
