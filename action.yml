@@ -18,6 +18,9 @@ runs:
     - name: Install Py ELF Tools
       run: sudo pip3 install pyelftools
       shell: bash
+    - name: Install LibNuma Dev
+      run: sudo apt install -y libnuma-dev
+      shell: bash
     - name: Clone DPDK repository
       run: git clone https://github.com/dpdk/dpdk.git
       shell: bash
